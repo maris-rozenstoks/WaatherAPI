@@ -13,6 +13,12 @@
 		FC7747CD2B021EE50020CD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7747CB2B021EE50020CD73 /* Main.storyboard */; };
 		FC7747CF2B021EE70020CD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7747CE2B021EE70020CD73 /* Assets.xcassets */; };
 		FC7747D22B021EE70020CD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7747D02B021EE70020CD73 /* LaunchScreen.storyboard */; };
+		FC7747E42B0225E10020CD73 /* CurrentWeaather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7747E32B0225E10020CD73 /* CurrentWeaather.swift */; };
+		FC7747E62B0228F50020CD73 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7747E52B0228F50020CD73 /* Location.swift */; };
+		FC7747E82B0229070020CD73 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7747E72B0229070020CD73 /* Current.swift */; };
+		FC7747EA2B0229180020CD73 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7747E92B0229180020CD73 /* Conditions.swift */; };
+		FC7747ED2B0230900020CD73 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC7747EC2B0230900020CD73 /* Alamofire */; };
+		FC7747EF2B0247520020CD73 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7747EE2B0247520020CD73 /* AppearanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,11 @@
 		FC7747CE2B021EE70020CD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7747D12B021EE70020CD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7747D32B021EE70020CD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC7747E32B0225E10020CD73 /* CurrentWeaather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeaather.swift; sourceTree = "<group>"; };
+		FC7747E52B0228F50020CD73 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FC7747E72B0229070020CD73 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
+		FC7747E92B0229180020CD73 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
+		FC7747EE2B0247520020CD73 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7747ED2B0230900020CD73 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +68,52 @@
 		FC7747C42B021EE50020CD73 /* WaatherAPI */ = {
 			isa = PBXGroup;
 			children = (
-				FC7747C52B021EE50020CD73 /* AppDelegate.swift */,
-				FC7747C72B021EE50020CD73 /* SceneDelegate.swift */,
-				FC7747C92B021EE50020CD73 /* ViewController.swift */,
-				FC7747CB2B021EE50020CD73 /* Main.storyboard */,
+				FC7747DC2B021F520020CD73 /* Models */,
+				FC7747D92B021EF00020CD73 /* Delegates */,
+				FC7747DB2B021F260020CD73 /* View */,
+				FC7747DA2B021F010020CD73 /* Controller */,
 				FC7747CE2B021EE70020CD73 /* Assets.xcassets */,
-				FC7747D02B021EE70020CD73 /* LaunchScreen.storyboard */,
 				FC7747D32B021EE70020CD73 /* Info.plist */,
 			);
 			path = WaatherAPI;
+			sourceTree = "<group>";
+		};
+		FC7747D92B021EF00020CD73 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FC7747C72B021EE50020CD73 /* SceneDelegate.swift */,
+				FC7747C52B021EE50020CD73 /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FC7747DA2B021F010020CD73 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC7747C92B021EE50020CD73 /* ViewController.swift */,
+				FC7747EE2B0247520020CD73 /* AppearanceViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC7747DB2B021F260020CD73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC7747CB2B021EE50020CD73 /* Main.storyboard */,
+				FC7747D02B021EE70020CD73 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC7747DC2B021F520020CD73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC7747E92B0229180020CD73 /* Conditions.swift */,
+				FC7747E72B0229070020CD73 /* Current.swift */,
+				FC7747E32B0225E10020CD73 /* CurrentWeaather.swift */,
+				FC7747E52B0228F50020CD73 /* Location.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +132,9 @@
 			dependencies = (
 			);
 			name = WaatherAPI;
+			packageProductDependencies = (
+				FC7747EC2B0230900020CD73 /* Alamofire */,
+			);
 			productName = WaatherAPI;
 			productReference = FC7747C22B021EE50020CD73 /* WaatherAPI.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +163,9 @@
 				Base,
 			);
 			mainGroup = FC7747B92B021EE50020CD73;
+			packageReferences = (
+				FC7747EB2B0230900020CD73 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = FC7747C32B021EE50020CD73 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7747EF2B0247520020CD73 /* AppearanceViewController.swift in Sources */,
+				FC7747EA2B0229180020CD73 /* Conditions.swift in Sources */,
 				FC7747CA2B021EE50020CD73 /* ViewController.swift in Sources */,
 				FC7747C62B021EE50020CD73 /* AppDelegate.swift in Sources */,
+				FC7747E42B0225E10020CD73 /* CurrentWeaather.swift in Sources */,
 				FC7747C82B021EE50020CD73 /* SceneDelegate.swift in Sources */,
+				FC7747E62B0228F50020CD73 /* Location.swift in Sources */,
+				FC7747E82B0229070020CD73 /* Current.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC7747EB2B0230900020CD73 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC7747EC2B0230900020CD73 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC7747EB2B0230900020CD73 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC7747BA2B021EE50020CD73 /* Project object */;
 }
