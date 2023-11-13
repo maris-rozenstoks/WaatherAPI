@@ -10,23 +10,16 @@ import UIKit
 class AppearanceViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var openSettings: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setLabelText()
+          super.viewDidLoad()
+          setLabelText()
     }
-    
 
-    
-   
     @IBAction func closeItemTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
+
     func setLabelText() {
         var labelText = "Unable to specify UI style"
         if traitCollection.userInterfaceStyle == .dark {
@@ -37,10 +30,9 @@ class AppearanceViewController: UIViewController {
 
         textLabel.text = labelText
     }
-}
 
-extension AppearanceViewController {
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        setLabelText()
+    @IBAction func openSettings(_ sender: Any) {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
     }
 }

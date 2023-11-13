@@ -31,7 +31,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title="Search"/>
                                         <connections>
-                                            <action selector="updateWeatherButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gWh-uK-RAl"/>
+                                            <action selector="getTemperature:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yP5-mK-Xdd"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAU-i1-gJh">
@@ -76,7 +76,7 @@
                                     <constraint firstAttribute="width" constant="160" id="hos-XC-g6z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
@@ -99,6 +99,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="qXv-4m-bvP">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.circle" catalog="system" id="6dl-Io-MXs">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <segue destination="XJd-k2-gza" kind="presentation" id="yi8-H3-Aod"/>
                             </connections>
@@ -107,6 +108,7 @@
                     <connections>
                         <outlet property="cityLabel" destination="wAU-i1-gJh" id="Ma5-bU-0zv"/>
                         <outlet property="cityTextField" destination="Btc-8p-C1a" id="2L7-BO-Mmd"/>
+                        <outlet property="getTemperatureButton" destination="vaQ-TB-Qni" id="OTY-Ux-IG4"/>
                         <outlet property="temperatureLabel" destination="1fF-g9-qVG" id="5iV-6I-fgd"/>
                     </connections>
                 </viewController>
@@ -127,8 +129,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-Fx-0oM">
-                                <rect key="frame" x="307" y="25" width="40" height="40"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <rect key="frame" x="306" y="25" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1S0-3Y-uuz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="qZ4-j6-MVM"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="x">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="27"/>
@@ -136,15 +142,15 @@
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
+                                        <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="closeItemTapped:" destination="XJd-k2-gza" eventType="touchUpInside" id="arc-Ga-WpY"/>
+                                    <action selector="closeItemTapped:" destination="XJd-k2-gza" eventType="touchUpInside" id="Xth-gO-1DB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wmq-WM-epa">
-                                <rect key="frame" x="107.5" y="200" width="160" height="104"/>
+                                <rect key="frame" x="107.5" y="200" width="160" height="90.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgC-5G-lwN">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
@@ -156,22 +162,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-Xo-S4H">
-                                        <rect key="frame" x="0.0" y="56" width="160" height="48"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="wXg-7P-MJv"/>
-                                            <constraint firstAttribute="height" constant="48" id="xmk-b4-850"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzE-nZ-kzP" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="0.0" y="56" width="160" height="34.5"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.664471657860358" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Settings"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadiuss">
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </label>
+                                        <connections>
+                                            <action selector="openSettings:" destination="XJd-k2-gza" eventType="touchUpInside" id="uDV-2r-JJd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -179,15 +183,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wmq-WM-epa" firstAttribute="top" secondItem="lTG-8i-plc" secondAttribute="top" constant="200" id="2DN-Tq-oJX"/>
+                            <constraint firstItem="aSO-Fx-0oM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lTG-8i-plc" secondAttribute="leading" symbolic="YES" id="6K5-Tv-8Yf"/>
+                            <constraint firstItem="aSO-Fx-0oM" firstAttribute="top" secondItem="lTG-8i-plc" secondAttribute="top" constant="25" id="F9X-pD-NIZ"/>
                             <constraint firstItem="wmq-WM-epa" firstAttribute="centerX" secondItem="JTa-iD-EAs" secondAttribute="centerX" id="QQP-Sq-gEL"/>
-                            <constraint firstItem="aSO-Fx-0oM" firstAttribute="leading" secondItem="lTG-8i-plc" secondAttribute="leading" constant="307" id="SpQ-mQ-mY9"/>
-                            <constraint firstItem="lTG-8i-plc" firstAttribute="bottom" secondItem="aSO-Fx-0oM" secondAttribute="bottom" constant="582" id="nFR-6A-L7i"/>
-                            <constraint firstItem="aSO-Fx-0oM" firstAttribute="top" secondItem="lTG-8i-plc" secondAttribute="top" constant="25" id="ntY-tX-UHj"/>
-                            <constraint firstItem="lTG-8i-plc" firstAttribute="trailing" secondItem="aSO-Fx-0oM" secondAttribute="trailing" constant="28" id="vmA-xV-95G"/>
+                            <constraint firstItem="lTG-8i-plc" firstAttribute="trailing" secondItem="aSO-Fx-0oM" secondAttribute="trailing" constant="29" id="asg-7N-iKL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="openSettings" destination="0pe-Xo-S4H" id="ted-1J-0h8"/>
                         <outlet property="textLabel" destination="tgC-5G-lwN" id="JOe-oj-IeJ"/>
                     </connections>
                 </viewController>
@@ -224,14 +226,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
