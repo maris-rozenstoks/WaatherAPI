@@ -16,8 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Day" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-vm-ZOY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="737"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Day" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-vm-ZOY">
+                                <rect key="frame" x="-317" y="-473" width="1008" height="1612"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-uv-HJv">
                                 <rect key="frame" x="107.5" y="214.5" width="160" height="238"/>
@@ -83,18 +84,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuQ-ge-xCn">
+                                <rect key="frame" x="107" y="476.5" width="160" height="64"/>
+                                <color key="backgroundColor" red="0.89111971430000003" green="0.29152027390000002" blue="0.23303690569999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="Y4V-Cz-cl9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="eft-aa-oRR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Btc-8p-C1a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="112" id="Bfx-bM-QWJ"/>
-                            <constraint firstItem="hvf-vm-ZOY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G5r-4b-ImN"/>
                             <constraint firstItem="cqc-uv-HJv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nbz-Pw-h2J"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="hvf-vm-ZOY" secondAttribute="bottom" constant="-70" id="W1L-Uk-LVs"/>
+                            <constraint firstItem="OuQ-ge-xCn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="QtV-30-GpW"/>
+                            <constraint firstItem="OuQ-ge-xCn" firstAttribute="top" secondItem="cqc-uv-HJv" secondAttribute="bottom" constant="24" id="Vo1-rT-dqo"/>
                             <constraint firstItem="cqc-uv-HJv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bNR-y1-NMd"/>
-                            <constraint firstItem="hvf-vm-ZOY" firstAttribute="centerX" secondItem="Btc-8p-C1a" secondAttribute="centerX" id="iuQ-BC-7DX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OuQ-ge-xCn" secondAttribute="trailing" constant="108" id="xiK-UN-YoC"/>
                             <constraint firstItem="Btc-8p-C1a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yb3-i3-hCQ"/>
-                            <constraint firstItem="hvf-vm-ZOY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-64" id="ypC-gz-Pvf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="qXv-4m-bvP">
@@ -109,6 +120,7 @@
                         <outlet property="cityLabel" destination="wAU-i1-gJh" id="Ma5-bU-0zv"/>
                         <outlet property="cityTextField" destination="Btc-8p-C1a" id="2L7-BO-Mmd"/>
                         <outlet property="getTemperatureButton" destination="vaQ-TB-Qni" id="OTY-Ux-IG4"/>
+                        <outlet property="locationLabel" destination="OuQ-ge-xCn" id="0ax-dS-t1z"/>
                         <outlet property="temperatureLabel" destination="1fF-g9-qVG" id="5iV-6I-fgd"/>
                     </connections>
                 </viewController>
@@ -227,7 +239,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
